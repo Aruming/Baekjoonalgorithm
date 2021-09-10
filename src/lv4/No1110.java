@@ -25,4 +25,5 @@ public class No1110 {
 		System.out.println(cnt);
 	}
 }
-
+ 
+  
