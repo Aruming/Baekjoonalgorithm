@@ -10,8 +10,8 @@ public class No1110 {
 		Scanner sc = new Scanner(System.in);
 		
 		int n, save, cnt;
-		n = sc.nextInt();	//입력
-		save = n;		//변수 복사
+		n = sc.nextInt();
+		save = n;
 		cnt = 0;
 		 
 		while(true){
