@@ -9,8 +9,6 @@ public class No1065 {
 		
 		if(n<100) {  //두자리수는 수열을 이루지 못해 모두 한수
 			result = n;
-		}else if(n==1000) {  //1000은 한수가 아니므로 999 결과와 같음
-			result = Hansu(999);
 		}else {
 			for(int i=100;i<=n;i++) {
 				int hun = i/100;
