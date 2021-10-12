@@ -4,7 +4,17 @@ import java.util.Scanner;
 
 public class No2581 {
 	
-	
+	static boolean Number(int num) {
+		int rnum = (int)Math.sqrt(num);
+		if(num==1) {
+			return false;
+		}
+		for(int j=2;j<=rnum;j++) {
+			if(num%j==0)
+				return false;
+		}
+		return true;
+	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -12,22 +22,15 @@ public class No2581 {
 		int m = sc.nextInt();
 		int n = sc.nextInt();
 		boolean result;
-		int min=0, sum=0, j;
+		int min=0, sum=0;
 		
 		for(int i=m;i<=n;i++) {
-			int rI = (int)Math.sqrt(i);
-			if(i==1) {
-				continue;
-			}
-			for(j=2;j<=rI;j++) {
-				if(i%j==0)
-					break;
-			}
-			if(j==rI+1) {
+			result = Number(i);
+			if(result) {
 				if(min==0)
 					min=i;
 				sum+=i;
-			}		
+			}				
 		}
 	
 
@@ -40,3 +43,4 @@ public class No2581 {
 	}
 
 }
+
