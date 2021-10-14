@@ -24,12 +24,12 @@ public class No9020 {
 		for(int i=0;i<t;i++) {
 			int n = sc.nextInt();
 			int half = n/2;
-			int a = half-1, b = half+1;
-			
+						
 			if(PNumber(half)) {
 				System.out.println(half+" "+half);
 			}
 			else {
+				int a = half-1, b = half+1;
 				while((PNumber(a) && PNumber(b)) != true) {
 					a--;
 					b++;
