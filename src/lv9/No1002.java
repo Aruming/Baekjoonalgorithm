@@ -18,14 +18,24 @@ public class No1002 {
 			
 			int distancePow = (int)Math.pow(x1-x2,2)+(int)Math.pow(y1-y2, 2);
 			
-			if(distancePow == Math.pow(r1+r2, 2) || distancePow == Math.pow(Math.abs(r1-r2),2))
-				System.out.println("1");
-			else if(distancePow > Math.pow(r1+r2, 2) || distancePow < Math.pow(Math.abs(r1-r2),2))
-				System.out.println("0");
-			else if(r1==r1 && distancePow==0)
+			if(x1 == x2 && y1 == y2 && r1 == r2) {
 				System.out.println("-1");
-			else
+			}
+			else if(distancePow > Math.pow(r1 + r2, 2)) {
+				System.out.println("0");
+			}
+			else if(distancePow < Math.pow(r2 - r1, 2)) {
+				System.out.println("0");
+			}
+			else if(distancePow == Math.pow(r2 - r1, 2)) {
+				System.out.println("1");
+			}
+			else if(distancePow == Math.pow(r1 + r2, 2)) {
+				System.out.println("1");
+			}
+			else {
 				System.out.println("2");
+			}
 		}
 	}
 
