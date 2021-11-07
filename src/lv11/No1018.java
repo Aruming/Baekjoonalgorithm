@@ -1,43 +1,49 @@
 package lv11;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class No1018 {
-	static String[][] board;
+	
+	static boolean[][] board;
 	static int min=64;
-	static void find(int i, int j) {
-		int x = i+8;
-		int y = j+8;
-		String color = board[i][j];
+	
+	static void find(int a, int b) {
+		int x = a+8;
+		int y = b+8;
+		Boolean color = board[a][b];
 		
 		int cnt=0;
-		for(int a=0;a<x;a++) {
-			for(int b=0;b<y;b++) {
+		for(int i=a;i<x;i++) {
+			for(int j=b;j<y;j++) {
 				if(board[i][j] != color)
 					cnt++;
-				if(color.equals("W"))
-					color = "B";
-				else if(color.equals("B"))
-					color="W";
+				
+				color = (!color);
 			}
-			if(color.equals("W"))
-				color = "B";
-			else if(color.equals("B"))
-				color="W";
+			color = (!color);
 		}
 		cnt = Math.min(cnt, 64-cnt);
 		min = Math.min(min, cnt);
 	}
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Scanner sc = new Scanner(System.in);
-		int n = sc.nextInt();
-		int m = sc.nextInt();		
-		board = new String[n][m];
+	public static void main(String[] args) throws IOException{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine()," ");
+		int n = Integer.parseInt(st.nextToken());
+		int m = Integer.parseInt(st.nextToken());
+		board = new boolean[n][m];
+		
 		for(int i=0;i<n;i++) {
-			String str = sc.next();
-			board[i] = str.split("");
+			String str = br.readLine();
+			for(int j=0;j<m;j++) {
+				if(str.charAt(j)=='W')
+					board[i][j] = true;
+				else
+					board[i][j] = false;
+			}
 		}
 		
 		for(int i=0;i<n-7;i++) {
